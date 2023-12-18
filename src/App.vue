@@ -4,11 +4,13 @@
     <section class="shadow-sm shadow-lightBlack rounded-lg p-0.5 border-2">
       <Search />
       <TableVue />
+      <Footer />
     </section>
   </main>
 </template>
 
 <script>
+import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import Search from "./components/Search.vue";
 import TableVue from "./components/Table.vue";
@@ -19,6 +21,7 @@ export default {
     Header,
     Search,
     TableVue,
+    Footer,
   },
 };
 </script>

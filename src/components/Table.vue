@@ -1,5 +1,5 @@
 <template>
-  <table class="w-full text-left">
+  <table class="w-full text-left px-8">
     <Tablehead />
     <Tablebody />
   </table>
