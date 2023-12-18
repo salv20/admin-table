@@ -1,46 +1,48 @@
 <template>
-  <tr class="flex justify-around bg-white space-y-2 px-6">
-    <td class="space-x-5 pt-4">
-      <input type="checkbox" class="w-4 h-4" />
-      <button><i class="bx bx-chevron-down-circle text-lg"></i></button>
+  <tr class="border-t-2 bg-white" v-for="user of users">
+    <td class=""><input type="checkbox" name="" id="" class="h-4 w-5" /></td>
+    <td><i class="bx bx-chevron-down-circle text-lg px-4" /></td>
+    <td class="leading-relaxed">
+      <p class="capitalize">{{ user.name }}</p>
+      <p>{{ user.email }}</p>
     </td>
-    <td>
-      <p class="capitalize">amoke salvation</p>
-      <p>atafff@gmail.com</p>
+    <td class="leading-relaxed py-2">
+      <p class="capitalize">
+        <span>
+          <i class="bx bx-stop rounded-full" />
+        </span>
+        {{ user.userstatus }}
+      </p>
+      <p>Last login {{ user.date }}</p>
     </td>
-    <td>
+
+    <td class="leading-relaxed">
       <p class="capitalize">
         <span>
           <i class="bx bx-stop rounded-full"></i>
         </span>
-        active
+        {{ user.paymentStatus }}
       </p>
-      <p>Last login 14/april/2023</p>
+      <p>paid on {{ user.date }}</p>
     </td>
-    <!--  -->
-    <td>
-      <p class="capitalize">
-        <span>
-          <i class="bx bx-stop rounded-full"></i>
-        </span>
-        paid
-      </p>
-      <p>paid on 14/april/2023</p>
-    </td>
-    <!--  -->
-    <td class="uppercase">
-      <p>$200</p>
+
+    <td class="uppercase leading-relaxed">
+      <p> {{ user.amount }} </p>
       <p>usd</p>
     </td>
-    <td class="flex space-x-5">
-      <p>view more</p>
-      <p><i class="bx bx-dots-vertical-rounded text-2xl"></i></p>
-    </td>
+    <td><p>view more</p></td>
+    <td> <i class="bx bx-dots-vertical-rounded text-2xl"></i> </td>
   </tr>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
+  },
+};
 </script>
 
 <style></style>

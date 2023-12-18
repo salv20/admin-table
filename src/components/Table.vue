@@ -1,5 +1,5 @@
 <template>
-  <table class="w-full text-tableDarkP">
+  <table class="w-full text-left">
     <Tablehead />
     <Tablebody />
   </table>

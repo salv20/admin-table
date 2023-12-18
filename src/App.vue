@@ -1,9 +1,7 @@
 <template>
-  <main class="w-11/12 mx-auto py-10 space-y-4 h-screen">
+  <main class="w-11/12 mx-auto py-10 space-y-4">
     <Header />
-    <section
-      class="box-border shadow-sm shadow-lightBlack rounded-lg p-0.5 border-2"
-    >
+    <section class="shadow-sm shadow-lightBlack rounded-lg p-0.5 border-2">
       <Search />
       <TableVue />
     </section>
@@ -37,5 +35,8 @@ export default {
   padding: 0px 4px;
   color: #6d5bd0;
   font-weight: 700;
+}
+i {
+  cursor: pointer;
 }
 </style>
