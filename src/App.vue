@@ -1,5 +1,5 @@
 <template>
-  <main class="w-11/12 mx-auto py-10 space-y-4">
+  <main class="w-11/12 mx-auto py-10 space-y-4 h-screen">
     <Header />
     <section
       class="box-border shadow-sm shadow-lightBlack rounded-lg p-0.5 border-2"
