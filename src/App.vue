@@ -1,16 +1,26 @@
 <template>
-  <main class="w-11/12 mx-auto py-14">
+  <main class="w-11/12 mx-auto py-10 space-y-4">
     <Header />
-    <section> </section>
+    <section
+      class="box-border shadow-sm shadow-lightBlack rounded-lg p-0.5 border-2"
+    >
+      <Search />
+      <TableVue />
+    </section>
   </main>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Search from "./components/Search.vue";
+import TableVue from "./components/Table.vue";
+Search;
 export default {
   name: "App",
   components: {
     Header,
+    Search,
+    TableVue,
   },
 };
 </script>
