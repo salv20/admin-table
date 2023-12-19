@@ -1,14 +1,17 @@
 <template>
   <main class="w-11/12 mx-auto py-10 space-y-4">
-    <Header />
+    <Header :total="sum" />
     <section
       class="rounded-lg shadow-sm shadow-lightBlack border-2 border-transparent"
     >
       <Search />
       <article class="p-0.5 overflow-x-scroll">
-        <TableVue />
-        <Footer />
+        <table class="w-full text-left px-8">
+          <Tablehead />
+          <Tablebody @total="getSum" />
+        </table>
       </article>
+      <Footer />
     </section>
   </main>
 </template>
@@ -17,15 +20,27 @@
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import Search from "./components/Search.vue";
-import TableVue from "./components/Table.vue";
+import Tablebody from "./components/Tablebody.vue";
+import Tablehead from "./components/Tablehead.vue";
 Search;
 export default {
   name: "App",
   components: {
     Header,
     Search,
-    TableVue,
     Footer,
+    Tablehead,
+    Tablebody,
+  },
+  data() {
+    return {
+      sum: null,
+    };
+  },
+  methods: {
+    getSum(total) {
+      this.sum = total;
+    },
   },
 };
 </script>

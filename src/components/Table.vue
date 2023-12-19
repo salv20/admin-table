@@ -1,7 +1,7 @@
 <template>
   <table class="w-full text-left px-8">
     <Tablehead />
-    <Tablebody />
+    <Tablebody @total="checkup" />
   </table>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   components: {
     Tablehead,
     Tablebody,
+  },
+  methods: {
+    checkup(sum) {
+      console.log(sum);
+    },
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <tr class="capitalize text-lg bg-searchInput h-12 w-full">
+  <tr class="capitalize md:text-lg bg-searchInput h-12 w-full">
     <th class="pl-4"
       ><input type="checkbox" name="" id="" class="h-4 w-5"
     /></th>

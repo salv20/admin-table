@@ -59,13 +59,12 @@ export default {
     },
     ...mapGetters(["paidUser", "unpaidUser", "overdueUser"]),
   },
+  emits: ["total"],
   mounted() {
     this.unpaidUser.map((users) => this.price.push(users.amount));
     this.overdueUser.map((users) => this.price.push(users.amount));
     if (this.price.length) {
       const sum = this.price.reduce((sig, sum) => sig + sum);
-      // this.total = sum;
-      // console.log(this.total);
       this.$emit("total", sum);
     } else {
       this.$emit("total", 0);
@@ -73,5 +72,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

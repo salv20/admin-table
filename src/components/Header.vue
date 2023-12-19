@@ -10,7 +10,7 @@
       </ul>
       <p
         >Total payable amount:
-        <span class="text-purple font-bold">$900.00</span> USD
+        <span class="text-purple font-bold">${{ total }}.00</span> USD
       </p>
     </article>
   </header>
@@ -19,5 +19,6 @@
 <script>
 export default {
   methods: {},
+  props: ["total"],
 };
 </script>
