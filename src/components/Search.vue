@@ -1,6 +1,6 @@
 <template>
-  <article class="flex justify-between p-4 bg-white">
-    <div class="flex w-3/4">
+  <article class="md:flex justify-between p-4 bg-white">
+    <div class="flex w-11/12 md:w-3/4">
       <div class="flex space-x-3 border border-tableDarkP rounded-lg px-6">
         <button>
           <i class="bx bxs-filter-alt text-purple text-2xl"></i>
@@ -8,7 +8,7 @@
         <button class="capitalize"> filter </button>
       </div>
 
-      <div class="w-3/5 ml-6">
+      <div class="w-11/12 md:w-3/5 ml-6">
         <input
           type="search"
           placeholder="search users by name, emial or date"
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="">
+    <div class="pt-3 md:pt-0">
       <button
         type="button"
         class="bg-purple uppercase text-white font-semibold py-3 px-6 rounded-lg"

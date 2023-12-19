@@ -5,7 +5,7 @@
       <span><i class="bx bxs-down-arrow"></i></span>
     </p>
     <p>1-10 of 276</p>
-    <div class="text-2xl">
+    <div class="text-2xl flex">
       <button><i class="bx bx-chevron-left"></i></button>
       <button><i class="bx bx-chevron-right"></i></button>
     </div>

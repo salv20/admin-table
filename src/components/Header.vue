@@ -1,7 +1,7 @@
 <template>
   <header class="text-tableDarkP leading-loose border-b border-lightBlack">
     <h2 class="uppercase font-semibold tracking-widest">table heading</h2>
-    <article class="flex justify-between">
+    <article class="md:flex justify-between space-y-2 md:space-y-0">
       <ul class="flex space-x-3 capitalize menu">
         <li class="active">all</li>
         <li class="cursor-pointer">paid</li>

@@ -12,6 +12,7 @@ module.exports = {
         green: "#038103",
         lightBlack: "#a29eba",
         searchInput: "#f4f2ff",
+        gray: "#e2e2f2",
       },
     },
   },

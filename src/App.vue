@@ -1,10 +1,14 @@
 <template>
   <main class="w-11/12 mx-auto py-10 space-y-4">
     <Header />
-    <section class="shadow-sm shadow-lightBlack rounded-lg p-0.5 border-2">
+    <section
+      class="rounded-lg shadow-sm shadow-lightBlack border-2 border-transparent"
+    >
       <Search />
-      <TableVue />
-      <Footer />
+      <article class="p-0.5 overflow-x-scroll">
+        <TableVue />
+        <Footer />
+      </article>
     </section>
   </main>
 </template>

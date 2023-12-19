@@ -95,7 +95,23 @@ export default createStore({
       },
     ],
   },
-  getters: {},
+  getters: {
+    paidUser(state) {
+      return state.users.filter(
+        (user) => user.paymentStatus.toLowerCase() === "paid"
+      );
+    },
+    unpaidUser(state) {
+      return state.users.filter(
+        (user) => user.paymentStatus.toLowerCase() === "unpaid"
+      );
+    },
+    overdueUser(state) {
+      return state.users.filter(
+        (user) => user.paymentStatus.toLowerCase() === "overdue"
+      );
+    },
+  },
   mutations: {},
   actions: {},
   modules: {},
