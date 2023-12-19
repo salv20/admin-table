@@ -13,6 +13,7 @@
           type="search"
           placeholder="search users by name, emial or date"
           class="indent-4 w-full capitalize bg-searchInput text-sm h-12 rounded-lg outline-none"
+          @change="searchingFunc"
         />
       </div>
     </div>
@@ -28,5 +29,11 @@
   </article>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    searchingFunc(e) {
+      this.$emit("searchInput", e.target.value);
+    },
+  },
+};
 </script>

@@ -1,7 +1,9 @@
 <template>
   <tr
     class="border-t-2 bg-white border-lightBlack"
-    v-for="user of currentUsers"
+    v-for="user of currentUsers.filter((user) =>
+      user.name.toLowerCase().includes(this.searchValue.toLowerCase())
+    )"
   >
     <td class="pl-4 px-4"
       ><input type="checkbox" name="" id="" class="h-4 w-5"
@@ -50,7 +52,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  props: ["target"],
+  props: ["target", "searchValue"],
   data() {
     return {
       price: [],
@@ -60,14 +62,16 @@ export default {
   },
 
   updated() {
-    if (this.target.contains("all")) {
-      this.currentUsers = this.users;
-    } else if (this.target.contains("paid")) {
-      this.currentUsers = this.paidUser;
-    } else if (this.target.contains("unpaid")) {
-      this.currentUsers = this.unpaidUser;
-    } else if (this.target.contains("overdue")) {
-      this.currentUsers = this.overdueUser;
+    if (this.target) {
+      if (this.target.contains("all")) {
+        this.currentUsers = this.users;
+      } else if (this.target.contains("paid")) {
+        this.currentUsers = this.paidUser;
+      } else if (this.target.contains("unpaid")) {
+        this.currentUsers = this.unpaidUser;
+      } else if (this.target.contains("overdue")) {
+        this.currentUsers = this.overdueUser;
+      }
     }
   },
   computed: {

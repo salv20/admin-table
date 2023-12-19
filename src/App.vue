@@ -4,11 +4,15 @@
     <section
       class="rounded-lg shadow-sm shadow-lightBlack border-2 border-transparent"
     >
-      <Search />
+      <Search @searchInput="setSearch" />
       <article class="p-0.5 overflow-x-scroll">
         <table class="w-full text-left px-8">
           <Tablehead />
-          <Tablebody @total="getSum" :target="target" />
+          <Tablebody
+            @total="getSum"
+            :target="target"
+            :searchValue="searchValue"
+          />
         </table>
       </article>
       <Footer />
@@ -36,6 +40,7 @@ export default {
     return {
       sum: null,
       target: null,
+      searchValue: "",
     };
   },
   methods: {
@@ -44,6 +49,9 @@ export default {
     },
     eventFunc(event) {
       this.target = event.classList;
+    },
+    setSearch(search) {
+      this.searchValue = search;
     },
   },
 };
