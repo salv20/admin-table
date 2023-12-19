@@ -5,7 +5,7 @@
       class="rounded-lg shadow-sm shadow-lightBlack border-2 border-transparent"
     >
       <Search @searchInput="setSearch" />
-      <article class="p-0.5 overflow-x-scroll">
+      <!-- <article class="p-0.5 overflow-x-scroll">
         <table class="w-full text-left px-8">
           <Tablehead />
           <Tablebody
@@ -14,7 +14,8 @@
             :searchValue="searchValue"
           />
         </table>
-      </article>
+      </article> -->
+      <LIst @total="getSum" :target="target" :searchValue="searchValue" />
       <Footer />
     </section>
   </main>
@@ -23,6 +24,7 @@
 <script>
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
+import LIst from "./components/LIst.vue";
 import Search from "./components/Search.vue";
 import Tablebody from "./components/Tablebody.vue";
 import Tablehead from "./components/Tablehead.vue";
@@ -35,6 +37,7 @@ export default {
     Footer,
     Tablehead,
     Tablebody,
+    LIst,
   },
   data() {
     return {

@@ -46,6 +46,8 @@
     </td>
     <td><button class="text-lightBlack px-4"> view more</button></td>
     <td> <i class="bx bx-dots-vertical-rounded text-2xl mr-4"></i> </td>
+
+    <!--  -->
   </tr>
 </template>
 
