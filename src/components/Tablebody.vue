@@ -2,7 +2,7 @@
   <tr
     class="border-t-2 bg-white border-lightBlack"
     v-for="user of currentUsers.filter((user) =>
-      user.name.toLowerCase().includes(this.searchValue.toLowerCase())
+      user.name.toLowerCase().includes(searchValue.toLowerCase())
     )"
   >
     <td class="pl-4 px-4"
