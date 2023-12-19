@@ -10,10 +10,10 @@
 
       <div class="w-full md:w-3/5 ml-6">
         <input
+          v-model="searchValue"
           type="search"
           placeholder="search users by name, emial or date"
           class="indent-4 w-full capitalize bg-searchInput text-sm h-12 rounded-lg outline-none"
-          @change="searchingFunc"
         />
       </div>
     </div>
@@ -30,10 +30,13 @@
 </template>
 <script>
 export default {
-  methods: {
-    searchingFunc(e) {
-      this.$emit("searchInput", e.target.value);
-    },
+  data() {
+    return {
+      searchValue: "",
+    };
+  },
+  updated() {
+    this.$emit("searchInput", this.searchValue);
   },
 };
 </script>
