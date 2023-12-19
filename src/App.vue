@@ -1,6 +1,6 @@
 <template>
   <main class="w-11/12 mx-auto py-10 space-y-4">
-    <Header :total="sum" />
+    <Header :total="sum" @target="eventFunc" />
     <section
       class="rounded-lg shadow-sm shadow-lightBlack border-2 border-transparent"
     >
@@ -8,7 +8,7 @@
       <article class="p-0.5 overflow-x-scroll">
         <table class="w-full text-left px-8">
           <Tablehead />
-          <Tablebody @total="getSum" />
+          <Tablebody @total="getSum" :target="target" />
         </table>
       </article>
       <Footer />
@@ -35,11 +35,15 @@ export default {
   data() {
     return {
       sum: null,
+      target: null,
     };
   },
   methods: {
     getSum(total) {
       this.sum = total;
+    },
+    eventFunc(event) {
+      this.target = event.classList;
     },
   },
 };
@@ -58,7 +62,8 @@ export default {
   color: #6d5bd0;
   font-weight: 700;
 }
-i {
+i,
+li {
   cursor: pointer;
 }
 </style>

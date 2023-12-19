@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="pt-3 md:pt-0 text-sm md:text-base">
+    <div class="pt-2 md:pt-0 text-sm md:text-base">
       <button
         type="button"
         class="bg-purple uppercase text-white font-semibold py-2 md:py-3 px-6 rounded-lg"

@@ -1,5 +1,8 @@
 <template>
-  <tr class="border-t-2 bg-white border-lightBlack" v-for="user of unpaidUser">
+  <tr
+    class="border-t-2 bg-white border-lightBlack"
+    v-for="user of currentUsers"
+  >
     <td class="pl-4 px-4"
       ><input type="checkbox" name="" id="" class="h-4 w-5"
     /></td>
@@ -39,19 +42,33 @@
       <p> {{ user.amount }} </p>
       <p>usd</p>
     </td>
-    <td><button class="text-lightBlack"> view more</button></td>
-    <td> <i class="bx bx-dots-vertical-rounded text-2xl pr-4"></i> </td>
+    <td><button class="text-lightBlack px-4"> view more</button></td>
+    <td> <i class="bx bx-dots-vertical-rounded text-2xl mr-4"></i> </td>
   </tr>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
+  props: ["target"],
   data() {
     return {
       price: [],
       total: null,
+      currentUsers: [],
     };
+  },
+
+  updated() {
+    if (this.target.contains("all")) {
+      this.currentUsers = this.users;
+    } else if (this.target.contains("paid")) {
+      this.currentUsers = this.paidUser;
+    } else if (this.target.contains("unpaid")) {
+      this.currentUsers = this.unpaidUser;
+    } else if (this.target.contains("overdue")) {
+      this.currentUsers = this.overdueUser;
+    }
   },
   computed: {
     users() {
@@ -69,6 +86,9 @@ export default {
     } else {
       this.$emit("total", 0);
     }
+  },
+  beforeMount() {
+    this.currentUsers = this.users;
   },
 };
 </script>
