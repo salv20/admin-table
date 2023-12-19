@@ -11,7 +11,7 @@
       <p class="capitalize">{{ user.name }}</p>
       <p class="text-tableDarkP">{{ user.email }}</p>
     </td>
-    <td class="leading-relaxed py-2 px-4">
+    <td class="leading-relaxed p-4">
       <p
         class="capitalize w-fit rounded-xl px-2"
         :class="

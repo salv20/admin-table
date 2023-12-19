@@ -5,7 +5,7 @@
       class="md:flex justify-between space-y-2 md:space-y-0"
       @click="tagertObj"
     >
-      <ul class="flex space-x-3 capitalize menu">
+      <ul class="flex space-x-3 capitalize">
         <li class="list active all">all</li>
         <li class="list paid">paid</li>
         <li class="list unpaid">unpaid</li>
