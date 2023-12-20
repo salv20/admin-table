@@ -71,7 +71,7 @@
               <p> Paid on {{ user.paidDate }} </p>
             </div>
             <div v-if="user.paymentStatus.toLowerCase() === 'overdue'">
-              <p class="capitalize bg-red-400 w-fit px-2 rounded-xl">
+              <p class="capitalize bg-red-400 px-1 w-fit rounded-xl">
                 <span> <i class="bx bxs-circle text-sm text-red-900" /> </span>
                 {{ user.paymentStatus }}
               </p>
