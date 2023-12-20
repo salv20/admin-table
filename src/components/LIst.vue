@@ -2,7 +2,7 @@
   <section class="space-y-2 bg-white overflow-x-scroll">
     <table class="w-full">
       <div
-        class="flex justify-between capitalize font-bold md:text-lg bg-searchInput px-4 space-x-12 md:space-x-2"
+        class="flex justify-between capitalize font-bold md:text-lg bg-searchInput px-4 space-x-8 md:space-x-2"
       >
         <p class="h-fit">
           <input type="checkbox" name="" id="" class="h-4 w-5" />
@@ -27,7 +27,7 @@
         )"
       >
         <div
-          class="flex justify-between border-t-2 border-lightBlack p-4 user-container"
+          class="flex justify-between border-t-2 border-lightBlack p-4 user-container space-x-8 md:space-x-2"
         >
           <p class="h-fit">
             <input type="checkbox" name="" id="" class="h-4 w-5" />
