@@ -73,4 +73,13 @@ i,
 li {
   cursor: pointer;
 }
+.view-container p {
+  padding: 2px 6px;
+}
+.view-container p:hover {
+  background: #a8a7b0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 1s;
+}
 </style>

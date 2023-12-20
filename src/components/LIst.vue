@@ -13,8 +13,8 @@
       <p class="h-fit w-1/6">user status</p>
       <p class="h-fit w-1/6">payment Status</p>
       <p class="h-fit w-1/12">amount</p>
-      <p class="h-fit w-1/12 opacity-0"> view more</p>
-      <p class="h-fit text-2xl w-fit">
+      <p class="h-fit lg:w-fit opacity-0"> view more</p>
+      <p class="h-fit text-2xl w-24 mx-1">
         <i class="bx bx-dots-vertical-rounded"></i>
       </p>
     </div>
@@ -82,10 +82,22 @@
           <p> ${{ user.amount }}</p>
           <p>usd</p>
         </div>
-        <p class="h-fit w-1/12"> view more</p>
-        <p class="h-fit text-2xl w-fit">
+        <div class="h-fit lg:w-fit view-container" @click="toggleView">
+          <p> view more</p>
+          <div class="font-semibold capitalize space-y-1 bg-white hidden">
+            <p>edit</p>
+            <p>view profile</p>
+            <p class="text-green">activate user </p>
+            <p class="text-red-600">delete</p>
+          </div>
+        </div>
+        <div
+          class="h-fit text-2xl w-24 mx-1 dots-container"
+          @click="toggleDots"
+        >
           <i class="bx bx-dots-vertical-rounded"></i>
-        </p>
+          <p class="text-sm hidden">Lorem ipsum dolor, sit amet consectetur</p>
+        </div>
       </div>
 
       <div class="w-5/6 mx-auto space-y-4 extension">
@@ -132,6 +144,20 @@ export default {
 
       e.target.parentElement.children[0].classList.toggle("hidden");
       e.target.parentElement.children[1].classList.toggle("hidden");
+    },
+    toggleView(e) {
+      const closest = e.target.closest(".view-container");
+      if (closest) {
+        closest.children[0].classList.toggle("hidden");
+        closest.children[1].classList.toggle("hidden");
+      }
+    },
+    toggleDots(e) {
+      const closest = e.target.closest(".dots-container");
+      if (closest) {
+        closest.children[0].classList.toggle("hidden");
+        closest.children[1].classList.toggle("hidden");
+      }
     },
   },
 
