@@ -21,8 +21,7 @@ import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import LIst from "./components/LIst.vue";
 import Search from "./components/Search.vue";
-import Tablebody from "./components/Tablebody.vue";
-import Tablehead from "./components/Tablehead.vue";
+
 Search;
 export default {
   name: "App",
@@ -30,8 +29,6 @@ export default {
     Header,
     Search,
     Footer,
-    Tablehead,
-    Tablebody,
     LIst,
   },
   data() {

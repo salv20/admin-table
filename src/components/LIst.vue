@@ -117,6 +117,9 @@ export default {
   },
 
   updated() {
+    document
+      .querySelectorAll(".extension")
+      .forEach((ext) => ext.classList.add("hidden"));
     if (this.target) {
       if (this.target.contains("all")) {
         this.currentUsers = this.users;
@@ -173,5 +176,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
