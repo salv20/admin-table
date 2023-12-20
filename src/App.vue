@@ -1,21 +1,16 @@
 <template>
-  <main class="w-11/12 mx-auto py-10 space-y-4">
+  <main class="w-11/12 mx-auto py-10 space-y-4 relative">
     <Header :total="sum" @target="eventFunc" />
     <section
       class="rounded-lg shadow-sm shadow-lightBlack border-2 border-transparent"
     >
-      <Search @searchInput="setSearch" />
-      <!-- <article class="p-0.5 overflow-x-scroll">
-        <table class="w-full text-left px-8">
-          <Tablehead />
-          <Tablebody
-            @total="getSum"
-            :target="target"
-            :searchValue="searchValue"
-          />
-        </table>
-      </article> -->
-      <LIst @total="getSum" :target="target" :searchValue="searchValue" />
+      <Search @searchInput="setSearch" @sorttarget="sorttargetFunc" />
+      <LIst
+        @total="getSum"
+        :target="target"
+        :searchValue="searchValue"
+        :sortTarget="sorttarget"
+      />
       <Footer />
     </section>
   </main>
@@ -44,6 +39,7 @@ export default {
       sum: null,
       target: null,
       searchValue: "",
+      sorttarget: "",
     };
   },
   methods: {
@@ -55,6 +51,9 @@ export default {
     },
     setSearch(search) {
       this.searchValue = search;
+    },
+    sorttargetFunc(target) {
+      this.sorttarget = target;
     },
   },
 };

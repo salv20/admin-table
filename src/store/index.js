@@ -196,6 +196,19 @@ export default createStore({
         (user) => user.paymentStatus.toLowerCase() === "overdue"
       );
     },
+    firstNameSort(state) {
+      return state.users.sort((a, b) =>
+        a.name.split(" ")[0] > b.name.split(" ")[0] ? 1 : -1
+      );
+    },
+    lastNameSort(state) {
+      return state.users.sort((a, b) =>
+        a.name.split(" ")[1] > b.name.split(" ")[1] ? 1 : -1
+      );
+    },
+    emailSort(state) {
+      return state.users.sort((a, b) => (a.email > b.email ? 1 : -1));
+    },
   },
   mutations: {},
   actions: {},

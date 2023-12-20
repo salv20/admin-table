@@ -36,7 +36,7 @@
           <i class="bx bx-chevron-up-circle text-lg px-4 hidden"></i>
         </p>
         <div class="h-fit w-1/4">
-          <p class="capitalize">{{ user.name }}</p>
+          <p class="capitalize">{{ user.name }} </p>
           <p>{{ user.email }}</p>
         </div>
         <div class="h-fit w-1/6 space-y-1">
@@ -80,7 +80,7 @@
             class="flex space-x-5 space-y-2"
             v-for="(date, index) of user.detailDates"
           >
-            <p class="w-1/6">{{ date }}</p>
+            <p class="w-1/6 uppercase">{{ date }}</p>
             <p class="w-1/2">{{ user.userActivity[index] }}</p>
             <p class="w-3/4">{{ user.userDetails[index] }}</p>
           </div>
@@ -96,7 +96,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
-  props: ["target", "searchValue"],
+  props: ["target", "searchValue", "sortTarget"],
   data() {
     return {
       price: [],
@@ -128,12 +128,31 @@ export default {
         this.currentUsers = this.overdueUser;
       }
     }
+    if (this.sortTarget) {
+      const closest = this.sortTarget.closest(".sl");
+      if (closest.classList.contains("default")) {
+        this.currentUsers = this.users;
+      } else if (closest.classList.contains("firstName")) {
+        this.currentUsers = this.firstNameSort;
+      } else if (closest.classList.contains("lastName")) {
+        this.currentUsers = this.lastNameSort;
+      } else if (closest.classList.contains("email")) {
+        this.currentUsers = this.emailSort;
+      }
+    }
   },
   computed: {
     users() {
       return this.$store.state.users;
     },
-    ...mapGetters(["paidUser", "unpaidUser", "overdueUser"]),
+    ...mapGetters([
+      "paidUser",
+      "unpaidUser",
+      "overdueUser",
+      "firstNameSort",
+      "lastNameSort",
+      "emailSort",
+    ]),
   },
   emits: ["total"],
   mounted() {
@@ -145,7 +164,6 @@ export default {
     } else {
       this.$emit("total", 0);
     }
-
     document
       .querySelectorAll(".extension")
       .forEach((ext) => ext.classList.add("hidden"));
