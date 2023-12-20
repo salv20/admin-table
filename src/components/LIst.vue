@@ -2,7 +2,7 @@
   <section class="space-y-2 bg-white overflow-x-scroll">
     <table class="w-full">
       <div
-        class="flex justify-between capitalize font-bold md:text-lg bg-searchInput px-4 space-x-4 md:space-x-2 py-2"
+        class="flex justify-between capitalize font-bold md:text-lg bg-searchInput px-4 space-x-4 md:space-x-2 pt-2"
       >
         <p class="h-fit">
           <input type="checkbox" name="" id="" class="h-4 w-5" />
