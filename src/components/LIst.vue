@@ -56,8 +56,27 @@
           <p class="text-tableDarkP">Last login {{ user.loginDate }}</p>
         </div>
         <div class="h-fit w-1/6">
-          <p class="capitalize">{{ user.paymentStatus }}</p>
-          <p> Paid on {{ user.paidDate }} </p>
+          <div v-if="user.paymentStatus.toLowerCase() === 'paid'">
+            <p class="capitalize bg-lightGreen w-fit rounded-xl px-2">
+              <span> <i class="bx bxs-circle text-sm text-green" /> </span>
+              {{ user.paymentStatus }}
+            </p>
+            <p> Paid on {{ user.paidDate }} </p>
+          </div>
+          <div v-if="user.paymentStatus.toLowerCase() === 'overdue'">
+            <p class="capitalize bg-red-400 w-fit px-2 rounded-xl">
+              <span> <i class="bx bxs-circle text-sm text-red-900" /> </span>
+              {{ user.paymentStatus }}
+            </p>
+            dued on {{ user.paidDate }}
+          </div>
+          <div v-if="user.paymentStatus.toLowerCase() === 'unpaid'">
+            <p class="capitalize w-fit bg-lightOrange px-2 rounded-xl">
+              <span> <i class="bx bxs-circle text-sm text-orange" /> </span>
+              {{ user.paymentStatus }}
+            </p>
+            dues on {{ user.paidDate }}
+          </div>
         </div>
         <div class="h-fit w-1/12 uppercase">
           <p> ${{ user.amount }}</p>
