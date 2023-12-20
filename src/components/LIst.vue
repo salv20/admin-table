@@ -2,7 +2,7 @@
   <section class="space-y-2 bg-white overflow-x-scroll">
     <table class="w-full">
       <div
-        class="flex justify-between capitalize font-bold md:text-lg bg-searchInput px-4 space-x-8 md:space-x-2"
+        class="flex justify-between capitalize font-bold md:text-lg bg-searchInput px-4 space-x-4 md:space-x-2"
       >
         <p class="h-fit">
           <input type="checkbox" name="" id="" class="h-4 w-5" />
@@ -27,10 +27,16 @@
         )"
       >
         <div
-          class="flex justify-between border-t-2 border-lightBlack p-4 user-container space-x-8 md:space-x-2"
+          class="flex justify-between border-t-2 border-lightBlack p-4 user-container space-x-4 md:space-x-2"
         >
           <p class="h-fit">
-            <input type="checkbox" name="" id="" class="h-4 w-5" />
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="h-4 w-5"
+              :checked="user.paymentStatus === 'paid'"
+            />
           </p>
           <p class="h-fit" @click="expandDetails">
             <i class="bx bx-chevron-down-circle text-lg px-4" />
@@ -94,6 +100,7 @@
           </div>
           <div
             class="h-fit text-2xl w-24 mx-1 dots-container"
+            :class="index"
             @click="toggleDots"
           >
             <i class="bx bx-dots-vertical-rounded"></i>
