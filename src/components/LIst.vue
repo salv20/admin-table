@@ -25,12 +25,15 @@
         user.name.toLowerCase().includes(searchValue.toLowerCase())
       )"
     >
-      <div class="flex justify-between border-t-2 border-lightBlack p-4">
+      <div
+        class="flex justify-between border-t-2 border-lightBlack p-4 user-container"
+      >
         <p class="h-fit">
           <input type="checkbox" name="" id="" class="h-4 w-5" />
         </p>
-        <p class="h-fit">
+        <p class="h-fit" @click="expandDetails">
           <i class="bx bx-chevron-down-circle text-lg px-4" />
+          <i class="bx bx-chevron-up-circle text-lg px-4 hidden"></i>
         </p>
         <div class="h-fit w-1/4">
           <p class="capitalize">{{ user.name }}</p>
@@ -65,13 +68,14 @@
           <i class="bx bx-dots-vertical-rounded"></i>
         </p>
       </div>
-      <div class="w-5/6 mx-auto space-y-4" v-if="isexpand">
+
+      <div class="w-5/6 mx-auto space-y-4 extension">
         <div class="flex space-x-5 uppercase text-tableDarkP">
           <p class="w-1/6">date</p>
           <p class="w-1/2">user activity</p>
           <p class="w-3/4">details</p>
         </div>
-        <aside v-if="user.detailDates">
+        <div v-if="user.detailDates">
           <div
             class="flex space-x-5 space-y-2"
             v-for="(date, index) of user.detailDates"
@@ -80,10 +84,10 @@
             <p class="w-1/2">{{ user.userActivity[index] }}</p>
             <p class="w-3/4">{{ user.userDetails[index] }}</p>
           </div>
-        </aside>
-        <aside class="uppercase text-tableDarkP text-center py-2" v-else>
+        </div>
+        <div class="uppercase text-tableDarkP text-center py-2" v-else>
           <h2>no records found</h2>
-        </aside>
+        </div>
       </div>
     </article>
   </section>
@@ -98,8 +102,18 @@ export default {
       price: [],
       total: null,
       currentUsers: [],
-      isexpand: false,
     };
+  },
+
+  methods: {
+    expandDetails(e) {
+      e.target
+        .closest(".user-container")
+        .nextSibling.classList.toggle("hidden");
+
+      e.target.parentElement.children[0].classList.toggle("hidden");
+      e.target.parentElement.children[1].classList.toggle("hidden");
+    },
   },
 
   updated() {
@@ -131,6 +145,10 @@ export default {
     } else {
       this.$emit("total", 0);
     }
+
+    document
+      .querySelectorAll(".extension")
+      .forEach((ext) => ext.classList.add("hidden"));
   },
   beforeMount() {
     this.currentUsers = this.users;
